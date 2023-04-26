@@ -8,12 +8,12 @@ export class ProductComponent {
                 <div id="pr" class="card mb-3 container rounded-5" style="width:1000px;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="${data.src}" class="rounded-5 img-fluid" alt="картинка" style="margin-top: 10px; margin-bottom: 10px;">
+                            <img src="${data.photo_400_orig}" class="rounded-5 img-fluid" alt="картинка" style="margin-top: 10px; margin-bottom: 10px;">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h3 class="card-title">${data.title}</h5>
-                                <p class="card-text">by ${data.author}</p>
+                                <h3 class="card-title">${data.first_name} ${data.last_name}</h5>
+                                <p class="card-text">by ${data.last_seen}</p>
                             </div>
                             <button class="btn btn-${type} d-flex align-items-end" style="margin-left:15px;" id="liveAlertBtn">Subscribe</button>
                             <div id="liveAlertPlaceholder" style="margin:15px;"></div>

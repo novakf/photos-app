@@ -8,13 +8,12 @@ export class ProductCardComponent {
                <div class="container" style="width: 300px; margin-bottom:50px;"> 
                <button class="btn btn-light container-fluid rounded-5" id="click-card-${data.id}" data-id="${data.id}">
                 
-                    <img id="${data.id}" class="card-img-top rounded-5" src="${data.src}" style="height:500px;" alt="картинка">
+                    <img id="${data.id}" class="card-img-top rounded-5" src="${data.photo_400_orig}" style="height:250px;" alt="картинка">
                     <div class="card-body">
-                        <h5 class="card-title">${data.title}</h5>
+                        <h5 class="card-title">${data.first_name}</h5>
                         
                     </div>
                 </button>
-                <button id="save-btn" class="btn btn-info container rounded-4">Save</button>
                 </div>
             `;
   }
