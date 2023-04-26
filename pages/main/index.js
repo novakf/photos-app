@@ -1,5 +1,8 @@
 import { ProductCardComponent } from "../../components/product-card/index.js";
 import { ProductPage } from "../product/index.js";
+import { ajax } from "../../modules/ajax.js";
+import { urls } from "../../modules/urls.js";
+import { groupId } from "../../modules/consts.js";
 
 export const pics = [
   {
@@ -51,12 +54,31 @@ export class MainPage {
 
   getHTML() {
     return `
-                <div id="main-page" class="d-flex container flex-wrap" style="width: 1000px;"><div/>
+                <div id="main-page" class="d-flex container flex-wrap" style="width: 1000px;">
+                  <div class="btn-group" style="height=250px;">
+                    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Sort
+                    </button>
+                    <div class="dropdown-menu" style="height:80px;">
+                      <button id="asc-button" class="dropdown-item btn btn-outline-primary">asc</button>
+                      <button id="desc-button" class="dropdown-item btn btn-outline-primary mb-3" type="button">desc</button>
+                    </div>
+                  </div>
+                <div/>
             `;
   }
 
+  renderData(items) {
+    items.forEach((item) => {
+      const productCard = new ProductCardComponent(this.pageRoot);
+      productCard.render(item, this.clickCard.bind(this));
+    });
+  }
+
   getData() {
-    return pics;
+    ajax.post(urls.getGroupMembers(groupId), (data) => {
+      this.renderData(data.response.items);
+    });
   }
 
   clickCard(e) {
@@ -72,11 +94,7 @@ export class MainPage {
     const html = this.getHTML();
     this.parent.insertAdjacentHTML("beforeend", html);
 
-    const data = this.getData();
-    data.forEach((item) => {
-      const productCard = new ProductCardComponent(this.pageRoot);
-      productCard.render(item, this.clickCard.bind(this));
-    });
+    this.getData();
 
     const alertTrigger = document.querySelectorAll("[id='save-btn']");
 
