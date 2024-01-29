@@ -9,7 +9,7 @@ export class BackButtonComponent {
 
   getHTML() {
     return `<div class="col-md-12 text-center">
-                <button id="back-button" class="btn btn-info rounded-5 mb-3 container" type="button" style="width: 1000px; margin-bottom: 20px;">Назад</button>
+                <button id="back-button" class="btn btn-info rounded-5 mb-3 container" type="button" style="width: 1000px; margin-bottom: 20px; margin-top: 15px;">Назад</button>
            </div> `;
   }
 

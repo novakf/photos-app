@@ -5,10 +5,10 @@ export class ProductCardComponent {
 
   getHTML(data) {
     return `
-               <div class="container" style="width: 300px; margin-bottom:50px;"> 
+               <div class="container" style="width: 300px; margin-bottom:50px; margin-top: 15px;"> 
                <button class="btn btn-light container-fluid rounded-5" id="click-card-${data.id}" data-id="${data.id}">
                 
-                    <img id="${data.id}" class="card-img-top rounded-5" src="${data.src}" style="height:500px;" alt="картинка">
+                    <img id="${data.id}" class="card-img-top rounded-5" src="${data.src}" style="height:450px;" alt="картинка">
                     <div class="card-body">
                         <h5 class="card-title">${data.title}</h5>
                         

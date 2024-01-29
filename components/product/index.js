@@ -23,7 +23,7 @@ export class ProductComponent {
             `;
   }
 
-  alert(data) {
+  alert() {
     const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
     const alert = (message, type) => {
       const wrapper = document.createElement("div");
@@ -59,6 +59,6 @@ export class ProductComponent {
     const html = this.getHTML(data, type);
     this.parent.insertAdjacentHTML("beforeend", html);
 
-    this.alert(data);
+    this.alert();
   }
 }
